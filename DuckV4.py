@@ -1,19 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[4]:
-
-
-import os
-print(os.getcwd())
-os.chdir(r"c:\Users\Sanju\LangChain")
-
-
-# In[3]:
-
-
 import os
 import streamlit as st
+import sqlite3
 import langchain
 from langchain.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
 from langchain.embeddings import OpenAIEmbeddings
@@ -21,10 +10,11 @@ from langchain.vectorstores import Chroma
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import fitz  # PyMuPDF library for working with PDFs
 
 # Create a Streamlit app
-st.title("🦣Doc BOT")
+#st.title("🤖 ChatDoc: Your Document Assistant")
+st.markdown("<h1 style='text-align: left; color: #0000CD; font-size: 34px;'>🤖 ChatDoc: Your Document Assistant</h1>", unsafe_allow_html=True)
+#st.subheader("Ask questions about your documents and get instant answers!")
 
 # Relative paths to the 'docs' and 'data' folders in the GitHub repository
 DOCS_DIRECTORY = "files"
@@ -73,7 +63,7 @@ if openai_api_key:
     )
 
     chat_history = []
-    st.write("Document BOT: Work smarter, not harder, with your documents 🪄")
+    st.write("Get the most out of your documents with AI-powered assistance 🪄")
 
     # Allow the user to select which document they want to query
     document_selection = st.selectbox("Select the document to query:", document_names)
@@ -89,8 +79,6 @@ if openai_api_key:
                 st.write("Answer:", result["answer"])
                 chat_history.append((query, result["answer"]))
 
-
-# In[ ]:
 
 
 
