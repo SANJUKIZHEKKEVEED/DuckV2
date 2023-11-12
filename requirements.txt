@@ -1,4 +1,9 @@
-streamlit
-langchain==0.3.29
+streamlit==1.28.0
+langchain==0.0.330
 openai>=0.25.0
-chromadb ==0.3.29
+chromadb==0.3.29
+pypdf==3.16.4
+tiktoken==0.5.1
+textract==1.6.5
+docx==0.2.4
+docx2txt==0.8
