@@ -31,9 +31,6 @@ if openai_api_key:
     # Set the OpenAI API key if it has been provided
     os.environ['OPENAI_API_KEY'] = openai_api_key
 
-    # Add the message before loading the documents
-    st.write("Searching documentation. This may take a second!")
-
     for file in os.listdir(DOCS_DIRECTORY):
         if file.endswith(".pdf"):
             pdf_path = os.path.join(DOCS_DIRECTORY, file)
