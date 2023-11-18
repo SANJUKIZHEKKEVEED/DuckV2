@@ -76,8 +76,7 @@ if openai_api_key:
 
     # Add a submit button with a spinner
     if st.button("Submit"):
-          st.write("Searching documentation. This may take a second!")
-        with st.spinner("Answering..."):
+        with st.spinner("Searching documentation. This may take a second!..."):
             if query:
                 result = pdf_qa({"question": query, "chat_history": chat_history, "context_documents": [document_selection]})
                 st.write("Answer:", result["answer"])
